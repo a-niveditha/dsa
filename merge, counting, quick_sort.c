@@ -1,4 +1,4 @@
-/*
+
 #include <stdio.h> 
 #include <stdlib.h> 
 void printArray(int A[], int l1, int r1) 
@@ -120,46 +120,6 @@ int main() {
 
 #include <stdio.h>
 
-int binarySearch(int a[], int n, int val) {
-    int l = 0;           
-    int u = n - 1;       
-    while (l <= u) {
-        int mid = (u + l) / 2;
-        if (val == a[mid]) {
-            return mid;     
-        }
-        else if (val > a[mid]) {
-            l = mid + 1;    
-        }
-        else {
-            u = mid - 1; 
-        }
-    }
-    return -1;
-}
-
-int main() {
-    int n;
-    printf("Name:Niveditha \nReg No:24BCE2000 \n");
-    printf("enter no of elements in the array\n");
-    scanf("%d", &n);
-    printf("enter the elements\n");
-    int a[100];
-    for(int i = 0; i < n; i++)
-        scanf("%d", &a[i]);
-    int val;
-    printf("enter value to be searched\n");
-    scanf("%d", &val);
-    int ans = binarySearch(a, n, val);
-    if(ans == -1)
-        printf("element not found");
-    else
-        printf("element found at index = %d", ans);
-    return 0;
-}
-    */
-#include <stdio.h>
-
 void countingSort(int arr[], int n) {
     int max = arr[0];
     for (int i = 1; i < n; i++) {
@@ -212,4 +172,4 @@ int main() {
         printf("%d ", arr[i]);
     }
     return 0;
-}
+} 
