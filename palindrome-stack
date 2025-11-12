@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX 100
+
+// Stack structure
+typedef struct {
+    char arr[MAX];
+    int top;
+} Stack;
+
+// Initialize stack
+void init(Stack *s) {
+    s->top = -1;
+}
+
+int isEmpty(Stack *s) {
+    return s->top == -1;
+}
+
+// Check if stack is full
+int isFull(Stack *s) {
+    return s->top == MAX - 1;
+}
+
+// Push element onto stack
+void push(Stack *s, char c) {
+    if (isFull(s)) {
+        printf("Stack overflow!\n");
+        return;
+    }
+    s->arr[++s->top] = c;
+}
+
+char pop(Stack *s) {
+    if (isEmpty(s)) {
+        printf("Stack underflow!\n");
+        return '\0';
+    }
+    return s->arr[s->top--];
+}
+int isPalindrome(char str[]) {
+    Stack s;
+    init(&s);
+    int len = strlen(str);
+    int i;
+    for (i = 0; i < len / 2; i++) {
+        push(&s, tolower(str[i]));
+    }
+    if (len % 2 != 0) {
+        i++;
+    }
+    while (i < len) {
+        if (tolower(str[i]) != pop(&s)) {
+            return 0; // Not a palindrome
+        }
+        i++;
+    }
+    return 1; 
+}
+
+int main() {
+    char str[MAX];
+    printf("Enter a string: ");
+    scanf("%s", str);
+    if (isPalindrome(str)) {
+        printf("\"%s\" is a palindrome.\n", str);
+    } else {
+        printf("\"%s\" is not a palindrome.\n", str);
+    }
+    return 0;
+} 
