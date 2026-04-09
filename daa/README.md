@@ -6,4 +6,6 @@
 6 - String matching
 7 - Graph algorithms
 8 - Geometric algorithms
+9 - Randomized algorithms
+10 - Appoximation algorithms
 
